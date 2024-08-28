@@ -40,6 +40,17 @@ def greet():
     speak("How can I help you?")
 
 if __name__ == "__main__":
-    # speak("Good morning sir")
-    # takeCommand()
-    greet()
+    query = takeCommand().lower()
+    if "jarvis" in query:
+        greet()
+        while(True):
+            query = takeCommand().lower()
+            if "stop" in query:
+                speak("Good bye sir")
+                break
+            elif "open notepad" in query: #open notepad
+                path = "C:\\Windows\\notepad.exe"
+                os.startfile(path)
+            elif "ms word" in query:
+                path = "C:\\ProgramData\\Microsoft\\Windows\\Start Menu\\Programs\\Word.lnk"
+                os.startfile(path)
