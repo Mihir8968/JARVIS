@@ -3,6 +3,7 @@ import speech_recognition as sr #sppech recognition module
 import datetime
 import os
 import webbrowser as wb
+import pywhatkit as pw
 
 engine = pyttsx3.init('sapi5')
 voices = engine.getProperty('voices')
@@ -39,9 +40,9 @@ def greet():
         speak("good evening mihhir sir. how may i help you?")
 
 if __name__ == "__main__":
-    # query = takeCommand().lower()
-    # if "jarvis" in query:
-    #     greet()
+    query = takeCommand().lower()
+    if "jarvis" in query:
+        greet()
         while(True):
             query = takeCommand().lower()
             if "stop" in query:
@@ -74,3 +75,7 @@ if __name__ == "__main__":
                 if hour > 12:
                     hour -= 12
                 speak(f"Sir, it is currently {min} past {hour}")
+            elif "play on youtube" in query:
+                speak("Sir, what do you want me to play?")
+                cm = takeCommand().lower()
+                pw.playonyt(cm)
