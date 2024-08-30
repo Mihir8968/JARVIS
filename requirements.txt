@@ -1,0 +1,7 @@
+The following modules are used in creating the project
+pyttsx3
+speech_recognition
+datetime
+os
+webbrowser
+pywhatkit
